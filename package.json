@@ -1,0 +1,14 @@
+{
+  "name": "error_logs",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-less": "*",
+    "connect": "2.8.0",
+    "grunt-template-jasmine-requirejs": "~0.1.6",
+    "grunt-contrib-jasmine": "~0.5.2"
+  },
+  "engine": "node >= 0.8.15"
+}
