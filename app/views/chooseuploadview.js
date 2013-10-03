@@ -74,13 +74,14 @@ function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView) {
 
     fileTypeRecognize : function (obj, docs, docnames, images, imgnames) {
       $.each(obj, function (i, file) {
-        if(file.type !== 'image/png' && file.type !== 'image/jpg' && file.type !== 'image/gif' && file.type !== 'image/jpeg' ) {
-          docs.push(file);
-          docnames.push(file.name);
-        }
-        else {
-          images.push(file);
-          imgnames.push(file.name);
+        switch (file.type) {
+          case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' :  docs.push(file);
+          docnames.push(file.name); break;
+          case 'application/pdf' : docs.push(file); docnames.push(file.name); break;
+          case 'image/jpeg' : images.push(file); imgnames.push(file.name); break;
+          case 'image/jpg' : images.push(file); imgnames.push(file.name); break;
+          case 'image/png' : images.push(file); imgnames.push(file.name); break;
+          case 'image/bmp' : images.push(file); imgnames.push(file.name); break;
         }
       });
     },
@@ -95,7 +96,7 @@ function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView) {
         this.ui.imgList.html(this.imgListView.render().$el);
       }
       else {
-        this.$('[data-img-chs]').remove();
+        this.$('[data-img-choice]').remove();
       }
     },
 

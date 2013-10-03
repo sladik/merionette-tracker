@@ -51,10 +51,6 @@ function ($, Backbone, Marionette, AjaxUploadView, app) {
         $('[data-btn-upload]').trigger('click');
         expect(ajaxUploadView.uploadFileHandler).toHaveBeenCalled();
       });
-//    it('Should on submit prevent page reload by calling noReload method', function () {
-//      $('[data-form2]').submit();
-//      expect(ajaxUploadView.noReload).toHaveBeenCalled();
-//    });
     });
 
     describe('UploadFileHandler method test', function () {
