@@ -19,10 +19,6 @@ function ($, _, Backbone, Marionette, app) {
       'click [data-doc-item]': 'setSelectedDoc'
     },
 
-    initialize: function () {
-      this.$el.html(this.model.get('value'));
-    },
-
     setSelectedDoc: function () {
       this.trigger('wasSelected', this.model.collection.indexOf(this.model));
     }

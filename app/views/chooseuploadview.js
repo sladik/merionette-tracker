@@ -6,12 +6,10 @@ define([
   'app',
   'globals',
   'views/imgListView',
-  'views/docListView',
-  'collections/imgCollection',
-  'collections/docCollection'
+  'views/docListView'
 ],
 
-function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView, ImgCollection, DocCollection) {
+function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView) {
 
   'use strict';
 
@@ -20,8 +18,8 @@ function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView, Im
     template : 'choose',
 
     events : {
-      'click [data-img-chs]' : 'imgUploadChoose',
-      'click [data-doc-chs]' : 'docUploadChoose'
+      'click [data-img-choice]' : 'imgUploadChoose',
+      'click [data-doc-choice]' : 'docUploadChoose'
     },
 
     ui : {
@@ -88,8 +86,8 @@ function ($, _, Backbone, Marionette, app, globals, ImgListView, DocListView, Im
     },
 
     initViews : function (imgnames, docnames) {
-      this.imageCollection = new ImgCollection(imgnames);
-      this.docCollection = new DocCollection(docnames);
+      this.imageCollection = new Backbone.Collection(imgnames);
+      this.docCollection = new Backbone.Collection(docnames);
       this.docListView = new DocListView({collection:this.docCollection});
       this.ui.docList.html(this.docListView.render().$el);
       if (globals.variables.docsCount < 1) {

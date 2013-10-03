@@ -66,12 +66,12 @@ function ($, Backbone, Marionette, ChooseUploadView, DocListView, app) {
         chooseUploadView.remove();
       });
       it('Divs have been created after View rendering', function () {
-        expect($('[data-img-chs]')).toExist();
-        expect($('[data-doc-chs]')).toExist();
+        expect($('[data-img-choice]')).toExist();
+        expect($('[data-doc-choice]')).toExist();
       });
       it('Methods calls on click', function () {
-        $('[data-img-chs]').click();
-        $('[data-doc-chs]').click();
+        $('[data-img-choice]').click();
+        $('[data-doc-choice]').click();
         expect(chooseUploadView.imgUploadChoose).toHaveBeenCalled();
         expect(chooseUploadView.docUploadChoose).toHaveBeenCalled();
       });

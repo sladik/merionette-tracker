@@ -27,7 +27,7 @@ function ($, Backbone, Marionette, AjaxUploadView, app) {
 
     describe('Rendering', function() {
       it('Elements of UI object exist', function () {
-        expect($('[data-form2]')).toExist();
+        expect($('[data-form]')).toExist();
         expect($('[data-upload]')).toExist();
       });
     });
@@ -36,7 +36,7 @@ function ($, Backbone, Marionette, AjaxUploadView, app) {
       beforeEach(function () {
         spyOn(ajaxUploadView, 'uploadFiles');
         spyOn(ajaxUploadView, 'noReload');
-        spyOn($('[data-form2]'), 'submit').andCallFake(function () {
+        spyOn($('[data-form]'), 'submit').andCallFake(function () {
           return false;
         });
         spyOn(ajaxUploadView, 'uploadFileHandler');

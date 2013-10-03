@@ -22,7 +22,7 @@ function ($, _, Backbone, Marionette, app, globals) {
     },
 
     ui: {
-      'Fileform': '[data-form2]',
+      'fileForm': '[data-form]',
       'input': '[data-upload]'
     },
 
@@ -36,14 +36,14 @@ function ($, _, Backbone, Marionette, app, globals) {
       if (typeof window.FormData === 'undefined') {
         var file = this.ui.input.val();
         var fileExt = file.substr(file.lastIndexOf('.') + 1, file.length - 1);
-        this.ui.Fileform.submit();
-        if (fileExt !== 'pdf') {
-          app.router.navigate('images', true);
+        this.ui.fileForm.submit();
+        switch (fileExt) {
+          case 'doc' : app.router.navigate('docs', true); break;
+          case 'docx' : app.router.navigate('docs', true); break;
+          case 'pdf' : app.router.navigate('docs', true); break;
+          case 'jpg' : app.router.navigate('images', true); break;
+          case 'png' : app.router.navigate('images', true); break;
         }
-        else {
-          app.router.navigate('docs', true);
-        }
-
       }
       else {
         var data = new FormData();
@@ -58,11 +58,13 @@ function ($, _, Backbone, Marionette, app, globals) {
           if (file.size > 1000000) {
             alert('File is too big');
           }
-          if (file.type !== 'image/png' && file.type !== 'image/jpg' && file.type !== 'image/gif' && file.type !== 'image/jpeg') {
-            docs.push(file);
-          }
-          else {
-            images.push(file);
+          switch (file.type) {
+            case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' : docs.push(file); break;
+            case 'application/pdf' : docs.push(file); break;
+            case 'image/jpeg' : images.push(file); break;
+            case 'image/jpg' : images.push(file); break;
+            case 'image/png' : images.push(file); break;
+            case 'image/bmp' : images.push(file); break;
           }
         });
         if (docs.length && !images.length) {

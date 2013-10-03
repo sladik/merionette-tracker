@@ -9,14 +9,11 @@ function ($, _, Backbone, Marionette) {
 
   'use strict';
 
-  return Backbone.View.extend({
+  return Marionette.ItemView.extend({
 
     tagName: 'li',
 
-    initialize: function () {
-      this.$el.html(this.model.get('value'));
-    }
-
+    template : 'imgitem'
   });
 
 });
