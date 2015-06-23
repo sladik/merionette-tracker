@@ -15,13 +15,14 @@ function ($, _, Backbone, Marionette) {
     }
     var template = window.JST && window.JST[name];
     if (!template) {
-      var url = 'app/templates/' + name + '.html';
+      var url = 'app/src/templates/' + name + '.html';
       $.ajax({url:url, async:false}).then(function (contents) {
         template = _.template(contents);
       });
     }
     return template;
   };
+
 
   Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
     return this.fetchTemplate(templateId);

@@ -6,16 +6,13 @@ define([],
 
     var globals = {};
 
-    globals.variables = {
-      files : null,
-      docsCount : 0
+    globals.variables = {};
+
+    globals.constants = {
+      repoUrl : 'https://api.github.com/repos/marionettejs/backbone.marionette'
     };
 
-    globals.constants = {};
-
-    globals.events = {
-      BITMAP_CHANGE : 'onBitmapChanged'
-    };
+    globals.events = {};
 
     globals.utils = {};
 

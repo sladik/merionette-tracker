@@ -5,7 +5,6 @@ require([
   'app',
   'router',
   'override',
-  'bootstrap',
   'backbone.stickit'
 ],
 
