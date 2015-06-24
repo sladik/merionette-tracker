@@ -4,6 +4,9 @@
   "dependencies": {
     "body-parser": "^1.13.1"
   },
+  "scripts": {
+    "start": "node app/server.js"
+  },
   "devDependencies": {
     "express": "^4.13.0",
     "grunt": "latest",
