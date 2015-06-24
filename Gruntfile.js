@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         options: {
           stdout: true
         },
-        command: 'node ./app/server.js'
+        command: 'node server.js'
       }
     },
     watch: {
