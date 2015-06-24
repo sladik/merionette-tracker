@@ -1,0 +1,32 @@
+For this application author has used backbone + marionette as basic stack and backbone.stickit as additional plugin
+for 2-ways data-binding, which is absent in Backbone
+
+To have opportunity track request parameters and user IP Express.js was used as node server framework.
+It is very useful because of it easy-route handling.
+
+Also there were used few node modules just for better dev usage.
+
+######### IMPLEMENTATION ##############
+
+To track unique IP for like/dislike action i have chosen next approach:
+    1.Check if action for current fork id already exists, if not - create new
+    2.The fork model has such structure
+    {
+        id,
+        like : {
+            counter,
+            ip : [],
+        },
+        dislike : {
+            counter,
+            ip : [],
+        }
+    }
+So when User like a fork, it adds his ip to proper action and in case he has already disliked same fork, dislikes
+ are decreased.If user with current IP has already voted status 403 will be sent to him, otherwise - status 200 with chosen action
+
+USAGE
+
+1. To run application please run from project root
+    1. npm install
+    2. grunt shell or npm start

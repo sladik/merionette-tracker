@@ -14,24 +14,42 @@ function ($, _, Backbone, Marionette, Layout, Collection, ForkListView) {
 
     return Marionette.Controller.extend({
 
-        initialize: function () {
+        initialize : function () {
             this.initComponents();
+            this.addEventHandlers();
             _.bindAll(this, 'showList');
         },
 
 
-        initComponents: function () {
+        addEventHandlers : function () {
+            this.listenTo(this.collection, 'request', this.onCollectionFetchHandler);
+            this.listenTo(this.collection, 'error sync', this.onCollectionSyncHandler);
+        },
+
+
+        onCollectionFetchHandler : function () {
+            $('.loading').removeClass('hidden');
+        },
+
+
+        onCollectionSyncHandler : function () {
+            $('.loading').addClass('hidden');
+        },
+
+
+        initComponents : function () {
             this.layout = new Layout();
             this.layout.render();
             this.collection = new Collection();
         },
+
 
         showList : function () {
             this.layout.repoRegion.show(new ForkListView({collection:this.collection}));
         },
 
 
-        initList: function () {
+        initList : function () {
             this.collection.fetch().done(this.showList);
         }
     });

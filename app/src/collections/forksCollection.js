@@ -14,8 +14,8 @@ function ($, _, Backbone, Marionette, globals, Model, moment) {
 
     return Backbone.Collection.extend({
 
-        model: Model,
-        url: globals.constants.repoUrl + '/forks',
+        model : Model,
+        url : globals.constants.repoUrl + '/forks',
 
         parse : function (forks) {
             return _.map(forks, function (fork) {

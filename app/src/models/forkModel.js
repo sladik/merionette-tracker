@@ -24,7 +24,7 @@ function ($, _, Backbone, Marionette) {
         },
         url : '/action',
 
-        save: function(attributes, options) {
+        save : function (attributes, options) {
             attributes || (attributes = {});
             options || (options = {});
             options.attrs = {

@@ -12,9 +12,9 @@ function ($, _, Backbone, Marionette, SampleView) {
 
     return Marionette.CollectionView.extend({
 
-        className: 'list',
+        className : 'list',
 
-        itemView: SampleView
+        itemView : SampleView
 
     });
 

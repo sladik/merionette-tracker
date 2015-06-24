@@ -25,6 +25,10 @@ body {
   }
 }
 
+.loading {
+  text-align: center;
+}
+
 .container {
   background: #fff;
   padding: 15px;
@@ -43,5 +47,23 @@ body {
        bottom: 5px;
        right: 5px;
      }
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .fork-item {
+    overflow: hidden;
+    padding-right: 19px;
+    .btn {
+      position: static;
+      display: block;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .date-block {
+      div {
+        float: none!important;
+      }
+    }
   }
 }

@@ -42,7 +42,7 @@ function ($, _, Backbone, Marionette) {
             }
         },
 
-        events: {
+        events : {
             'click [data-action]' : 'btnActionClickHandler'
         },
 

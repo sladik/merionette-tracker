@@ -3,11 +3,10 @@ define([
   'underscore',
   'backbone',
   'marionette',
-  'src/controllers/collaborCtrl',
-  'src/controllers/repoCtrl'
+  'src/controllers/forkCtrl'
 ],
 
-function ($, _, Backbone, Marionette, CollaborCtrl, RepoCtrl) {
+function ($, _, Backbone, Marionette, ForkCtrl) {
 
   'use strict';
 
@@ -17,18 +16,19 @@ function ($, _, Backbone, Marionette, CollaborCtrl, RepoCtrl) {
       '' : 'initData'
     },
 
+
     initialize : function () {
       this.initControllers();
     },
 
+
     initControllers : function () {
-      this.collaborCtrl = new CollaborCtrl();
-      this.repoCtrl = new RepoCtrl();
+      this.forkCtrl = new ForkCtrl();
     },
 
+
     initData : function () {
-      this.collaborCtrl.initList();
-      this.repoCtrl.initList();
+      this.forkCtrl.initList();
     }
 
   });

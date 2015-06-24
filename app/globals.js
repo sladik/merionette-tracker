@@ -12,10 +12,6 @@ define([],
       repoUrl : 'https://api.github.com/repos/marionettejs/backbone.marionette'
     };
 
-    globals.events = {};
-
-    globals.utils = {};
-
     return globals;
 
   });
