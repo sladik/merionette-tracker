@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var _ = require('underscore');
+var port = process.env.PORT || 8080;
 var forks = [];
 
 app.use( bodyParser.json() );
@@ -58,10 +59,9 @@ app.get('/', function(req,res) {
     res.sendFile('index.html');
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(port, function () {
 
     var host = server.address().address;
-    var port = server.address().port;
 
     console.log('Application starts at http://%s:%s', host, port);
 
